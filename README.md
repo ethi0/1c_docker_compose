@@ -1,4 +1,4 @@
-1. Pull all images:
+1. Build all images or:
 docker pull ethi0/1c_server
 docker pull ethi0/1c_server_data
 docker pull ethi0/1c_db
