@@ -2,7 +2,7 @@ version: '2'
 services:
 
   1c.local:
-    image: ethi0/1c_server:8.3.13.1690
+    image: ethi0/1c_server:latest
     volumes_from:
     - data
     volumes:
