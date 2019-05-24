@@ -15,6 +15,9 @@ services:
     networks: 
     - front
     hostname: 1c.local
+    depends_on:
+    - data
+    - db
 
   data:
     image: ethi0/1c_server_data:latest
@@ -33,6 +36,8 @@ services:
     networks: 
     - front
     hostname: 1c.db
+    - data
+    - 1c.local
 
 networks:
   front:
