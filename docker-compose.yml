@@ -17,7 +17,7 @@ services:
     hostname: 1c.local
 
   data:
-    image: ethi0/1c_data:latest
+    image: ethi0/1c_server_data:latest
     container_name: 1c_server_data
     volumes:
     - /var/log/1c
