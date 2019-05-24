@@ -36,8 +36,8 @@ services:
     networks: 
     - front
     hostname: 1c.db
+    depends_on:
     - data
-    - 1c.local
 
 networks:
   front:
