@@ -1,5 +1,6 @@
 version: '2'
 services:
+
   1c.local:
     image: ethi0/1c_server:8.3.13.1690
     volumes_from:
@@ -14,14 +15,15 @@ services:
     networks: 
     - front
     hostname: 1c.local
-#    domainname: 1c.local
+
   data:
-    image: ethi0/1c_data
+    image: ethi0/1c_data:latest
     container_name: 1c_server_data
     volumes:
     - /var/log/1c
     - /home/usr1cv8
     restart: always
+
   db:
     image: ethi0/postgres_ua:latest
     container_name: postgres
@@ -31,7 +33,6 @@ services:
     networks: 
     - front
     hostname: 1c.db
-#    domainname: 1c.db
 
 networks:
   front:
