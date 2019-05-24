@@ -1,0 +1,43 @@
+version: '2'
+services:
+  1c.local:
+    image: ethi0/1c_server:8.3.13.1690
+    volumes_from:
+    - data
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    ports:
+    - 1540-1541:1540-1541
+    - 1560-1591:1560-1591
+    restart: always
+    container_name: 1c.local
+    networks: 
+    - front
+    hostname: 1c.local
+#    domainname: 1c.local
+  data:
+    image: ethi0/1c_data
+    container_name: 1c_server_data
+    volumes:
+    - /var/log/1c
+    - /home/usr1cv8
+    restart: always
+  db:
+    image: ethi0/postgres_ua:latest
+    container_name: postgres
+    restart: always
+    ports: 
+    - 5432:5432
+    networks: 
+    - front
+    hostname: 1c.db
+#    domainname: 1c.db
+
+networks:
+  front:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.18.0.0/24
+        gateway: 172.18.0.1
