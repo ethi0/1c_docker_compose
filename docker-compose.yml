@@ -25,7 +25,7 @@ services:
     restart: always
 
   db:
-    image: ethi0/postgres_ua:latest
+    image: ethi0/1c_db:latest
     container_name: postgres
     restart: always
     ports: 
