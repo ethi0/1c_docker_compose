@@ -14,7 +14,7 @@ services:
     container_name: 1c.local
     networks: 
       net:
-        ipv4_address: 172.18.0.3
+        ipv4_address: 172.18.0.2
     hostname: 1c.local
     depends_on:
     - data
@@ -29,13 +29,13 @@ services:
 
   db:
     image: ethi0/1c_db:latest
-    container_name: postgres
+    container_name: 1c_db
     restart: always
     ports: 
     - 5432:5432
     networks: 
       net:
-        ipv4_address: 172.18.0.2
+        ipv4_address: 172.18.0.3
     hostname: 1c.db
     depends_on:
     - data
