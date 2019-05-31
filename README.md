@@ -10,3 +10,5 @@ docker pull ethi0/1c_db
 docker-compose up -d
 3. docker-compose stop/start.
 
+Or... Just clone this repo, cd to it and:
+docker-compose up -d
