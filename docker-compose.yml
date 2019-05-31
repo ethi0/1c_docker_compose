@@ -13,7 +13,8 @@ services:
     restart: always
     container_name: 1c.local
     networks: 
-    - front
+      net:
+        ipv4_address: 172.18.0.3
     hostname: 1c.local
     depends_on:
     - data
@@ -25,7 +26,6 @@ services:
     volumes:
     - /var/log/1c
     - /home/usr1cv8
-    restart: always
 
   db:
     image: ethi0/1c_db:latest
@@ -34,13 +34,14 @@ services:
     ports: 
     - 5432:5432
     networks: 
-    - front
+      net:
+        ipv4_address: 172.18.0.2
     hostname: 1c.db
     depends_on:
     - data
 
 networks:
-  front:
+  net:
     driver: bridge
     ipam:
       driver: default
