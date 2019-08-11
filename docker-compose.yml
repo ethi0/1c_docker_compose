@@ -38,6 +38,8 @@ services:
     hostname: 1c.db
     depends_on:
     - data
+    volumes:
+    - /home/usr1cv8/db_data:/data
 
 networks:
   front:
