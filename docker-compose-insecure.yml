@@ -1,3 +1,5 @@
+#WARNING! This docker-compose file is insecure. But it's good as an instruction which ports have to be used.
+#You don't need use it, the default and secure docker-compose.yml is available.
 version: '2'
 services:
 
@@ -7,6 +9,9 @@ services:
     - data
     volumes:
     - /etc/localtime:/etc/localtime:ro
+    ports:
+    - 1540-1541:1540-1541
+    - 1560-1591:1560-1591
     restart: always
     container_name: 1c.local
     networks: 
@@ -28,6 +33,9 @@ services:
     image: ethi0/1c_db:latest
     container_name: 1c_db
     restart: always
+    ports: 
+    - 5432:5432
+    - 5433:5433
     networks: 
       net:
         ipv4_address: 172.18.0.3
